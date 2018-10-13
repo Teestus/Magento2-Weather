@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">lublin_weather_listing.lublin_weather_listing_data_source</item>
+            <item name="deps" xsi:type="string">lublin_weather_listing.lublin_weather_listing_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">weather_grid_columns</item>
+    </argument>
+
+    <listingToolbar name="listing_top">
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+
+    <dataSource name="lublin_weather_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">GridDataProvider</argument>
+            <argument name="name" xsi:type="string">lublin_weather_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                </item>
+            </argument>
+        </argument>
+
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+
+    <columns name="weather_grid_columns">
+        <column name="entity_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sorting" xsi:type="string">asc</item>
+                    <item name="label" xsi:type="string" translate="true">ID</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="weather_text">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Weather Status</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="metric">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Metric Value (°C)</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="imperial">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Imperial Value (°F)</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="created_at">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Created At Date</item>
+                </item>
+            </argument>
+        </column>
+
+        <actionsColumn name="actions" class="CrowSoft\Weather\Ui\Component\Listing\Column\GridActions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">107</item>
+                    <item name="indexField" xsi:type="string">entity_id</item>
+                </item>
+            </argument>
+        </actionsColumn>
+    </columns>
+</listing>

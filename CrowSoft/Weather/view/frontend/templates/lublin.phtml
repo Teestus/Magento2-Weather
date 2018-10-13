@@ -1,0 +1,9 @@
+<?php
+/** @var \CrowSoft\Weather\Block\Lublin $block */
+/** @var \CrowSoft\Weather\Api\Data\WeatherInterface $item */
+$item = $block->getItem();
+?>
+
+<h1><?= __("Weather Forecast In Lublin") ?></h1>
+<div><?= __("State: ").$item->getWeatherText() ?></div>
+<div><?= __("Temperature: ").$block->getTemperature($item) ?></div>

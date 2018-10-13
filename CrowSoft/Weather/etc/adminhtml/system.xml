@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="weather" translate="label" sortOrder="1000">
+            <label>Weather</label>
+        </tab>
+        <section id="weather" translate="label" sortOrder="1000" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Lublin Weather</label>
+            <tab>weather</tab>
+            <resource>CrowSoft_Weather::weather_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Settings</label>
+                <field id="api_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Api Key</label>
+                </field>
+                <field id="api_endpoint" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Api Endpoint</label>
+                </field>
+                <field id="city" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>City</label>
+                    <source_model>CrowSoft\Weather\Model\Config\Source\City</source_model>
+                </field>
+                <field id="language" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Language</label>
+                    <source_model>CrowSoft\Weather\Model\Config\Source\Language</source_model>
+                </field>
+                <field id="units" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Displayed Units</label>
+                    <source_model>CrowSoft\Weather\Model\Config\Source\Units</source_model>
+                </field>
+                <field id="cron_enabled" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Cron</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
