@@ -24,6 +24,12 @@
             <argument name="resourceModel" xsi:type="string">CrowSoft\Weather\Model\ResourceModel\LublinWeather</argument>
         </arguments>
     </virtualType>
+    
+    <virtualType name="GridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">CrowSoft\Weather\Model\ResourceModel\Lublin\Weather\Collection</argument>
+        </arguments>
+    </virtualType>
 
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
